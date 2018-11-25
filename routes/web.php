@@ -36,6 +36,7 @@ Route::post('/stock/store', array('as' => 'stock.store', 'routegroup' => 'stock'
 Route::get('/stock/{id}/edit', array('as' => 'stock.edit', 'routegroup' => 'profile','uses' => 'StockController@edit'));
 Route::get('/stock/{id}/delete', array('as' => 'stock.delete', 'routegroup' =>'stock','uses' => 'StockController@delete'));
 Route::post('/stock/update', array('as' => 'stock.update', 'routegroup' => 'stock', 'uses' => 'StockController@update'));
+Route::post('/stock/getsizenkapad', array('as' => 'stock.getsizenkapad', 'routegroup' => 'stock', 'uses' => 'StockController@getsizenkapad'));
 
 Route::get('/bill', array('as' => 'bill', 'routegroup' => 'bill','uses' => 'BillController@index'));
 Route::get('/bill', array('as'=>'bill','searchtype'=>'3','routegroup'=>'bill','uses' => 'BillController@index'));

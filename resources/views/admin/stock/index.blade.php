@@ -26,9 +26,9 @@
               <table id="datatable_catgory" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Serial No</th>                 
-                  <th>Kapad</th>
+                  <th>Serial Name</th>
                   <th>Size</th>                  
+                  <th>Qty</th>                  
                   <th>Date</th>
                   <th>Action</th>
                 </tr>
@@ -37,9 +37,15 @@
                     @if(!empty($stock) && $stock->count() > 0)
                     @foreach($stock as $key => $value)
                     <tr>
-                      <td>{{$value->serial_no}}</td>
-                      <td>{{$value->kapad}}</td>
-                      <td>{{$value->size}}</td>                                            
+                        <td>
+                            @foreach($sizewithprices as $sizeprize)                            
+                                @if($sizeprize->id == $value->serial_id)                                    
+                                    {{$sizeprize->serial_name}}
+                                @endif
+                            @endforeach
+                        </td>
+                      <td>{{$value->size}}</td>
+                      <td>{{$value->qty}}</td>                                                                  
                       <td>{{$value->order_date}}</td>
                       <td><a href="{{ route('stock.edit',array('id'=>$value->id))}}" rel="tooltip" title="" class="btn btn-default btn-xs" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
                       <a href="{{ route('stock.delete',array('id'=>$value->id))}}" rel="tooltip" title="" class="btn btn-default btn-xs" data-original-title="Delete"><i class="fa fa-trash"></i></a>

@@ -21,39 +21,26 @@
             <div class="box-body">
                 <form class="forms-sample" id="stock" name="stock" method="POST" enctype="multipart/form-data" action="{{ route('stock.store')}}"
                       autocomplete="off">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
-                        <label>Serial Name</label> 
-                        <select id="serial_id" name="serial_id" class="form-control m-b-sm">
-                            <option value="0">Select Serial Name</option>
-                              @if(!empty($sizewithprices))
-                              @foreach($sizewithprices as $avg)
-                              <option value="{{$avg->id}}">{{$avg->serial_name}}</option>
-                              @endforeach
-                              @endif
-                        </select>
-                    </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Kapad</label>
-                                <input type="text" class="form-control p-input" id="kapad" name="kapad" placeholder="Kapad">
+                                <div class="col-md-6">
+                                <label>Serial Name</label> 
+                                <select id="serial_id" name="serial_id" class="form-control m-b-sm">
+                                    <option value="0">Select Serial Name</option>
+                                    @if(!empty($sizewithprices))
+                                    @foreach($sizewithprices as $avg)
+                                    <option value="{{$avg->id}}">{{$avg->serial_name}}</option>
+                                    @endforeach
+                                    @endif
+                                </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Size (X,XL,XXL)</label>
-                                <input type="text" class="form-control p-input" id="size" name="size" placeholder="Size">
-                            </div>
-                        </div>   
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Quantity</label>
-                                <input type="text" class="form-control p-input" id="Quantity" name="qty" placeholder="Quantity">
-                            </div>
-                        </div> 
+                        </div>  
+                        
+                        <div class="sizewithdata-html"></div>
+                        
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Order Date</label>                        
@@ -75,6 +62,20 @@
     </section>
 </div>
 <script type="text/javascript" >
+
+    $("#serial_id").on('change', function () {
+        var Serialid = $(this).val();
+        var _token = $("#_token").val();
+        $.ajax({
+            type: "POST",
+            url: "{{url('/stock/getsizenkapad')}}",
+            data: {serial_id: Serialid, _token: _token},
+            success: function (html) {
+//                alert(html);
+                $('.sizewithdata-html').html(html);
+            }
+        });
+    });
 
 </script>
 @endsection
