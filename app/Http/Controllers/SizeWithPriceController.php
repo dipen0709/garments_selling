@@ -88,56 +88,16 @@ class SizeWithPriceController extends CommonController{
         $j = $request->addDetails;
         $size = $request->size;
         $price = $request->price;
-        $other_price = $request->other_price;
-        $other_desc = $request->other_desc;
-//        echo '<pre>'; print_r($size);
-//        echo '<pre>'; print_r($price);
         $data = array();
         for($a= 0; $a < $j; $a++){
             if(isset($size[$a]) && isset($price[$a])){
-                $data[$a]['size'] = $size[$a];
-                $data[$a]['price'] = $price[$a];
-                $data[$a]['other_price'] = $other_price[$a];
-                $data[$a]['other_desc'] = $other_desc[$a];
-                $key = $a + 1; 
-                $avg_key = 'total_avg_'.$key;
-                $total_avg =  $request->$avg_key; 
-                if($total_avg > 0){
-                        $kapad_key = 'kapad_id_'.$key;
-                        $kapad_use_key = 'use_kapad_'.$key;
-                        $kapad = $request->$kapad_key;
-                        $use_kapad = $request->$kapad_use_key;
-                        if(!empty($kapad) && !empty($use_kapad)){
-//                            echo $a;
-//                            echo '<pre>'; print_r($kapad);
-                            $loop = count($kapad);
-                            $temp = array();
-                            $use_temp = array();
-                            $x = 0;
-                            for($i = 0; $i < $loop; $i++){
-                                if(!empty($kapad[$i]) && !empty($use_kapad[$i])) {
-                                    $temp[$x] = $kapad[$i];
-                                    $use_temp[$x] = $use_kapad[$i];
-                                    $x++;
-                                }
-                            }
-                            if(!empty($temp) && !empty($use_temp)){
-                                $data[$a]['avg']['kapad'] =  $temp;
-                                $data[$a]['avg']['use_kapad'] =  $use_temp;
-                            } else {
-                                unset($data[$a]);
-                            }
-                        } else {
-                            unset($data[$a]);
-                        }
-                } else {
-                            unset($data[$a]);
-                }
+                $data['size'] = $size[$a];
+                $data['price'] = $price[$a];
+                $x[] = $data;
             }
         }
-//        echo '<pre>'; print_r($data); die;
-        if(!empty($data)){
-            $sizenprice->cloth_details = json_encode($data);
+        if(!empty($x)){
+            $sizenprice->cloth_details = json_encode($x);
         } else {
             $sizenprice->cloth_details = '';
         }
@@ -152,55 +112,20 @@ class SizeWithPriceController extends CommonController{
         $j = $request->addDetails;
         $size = $request->size;
         $price = $request->price;
-        $other_price = $request->other_price;
-        $other_desc = $request->other_desc;
         $data = array();
         for($a= 0; $a < $j; $a++){
             if(isset($size[$a]) && isset($price[$a])){
-                $data[$a]['size'] = $size[$a];
-                $data[$a]['price'] = $price[$a];
-                $data[$a]['other_price'] = $other_price[$a];
-                $data[$a]['other_desc'] = $other_desc[$a];
-                $key = $a + 1; 
-                $avg_key = 'total_avg_'.$key;
-                $total_avg =  $request->$avg_key; 
-                if($total_avg > 0){
-                        $kapad_key = 'kapad_id_'.$key;
-                        $kapad_use_key = 'use_kapad_'.$key;
-                        $kapad = $request->$kapad_key;
-                        $use_kapad = $request->$kapad_use_key;
-                        if(!empty($kapad) && !empty($use_kapad)){
-                            $loop = count($kapad);
-                            $temp = array();
-                            $use_temp = array();
-                            $x = 0;
-                            for($i = 0; $i < $loop; $i++){
-                                if(!empty($kapad[$i]) && !empty($use_kapad[$i])) {
-                                    $temp[$x] = $kapad[$i];
-                                    $use_temp[$x] = $use_kapad[$i];
-                                    $x++;
-                                }
-                            }
-                            if(!empty($temp) && !empty($use_temp)){
-                                $data[$a]['avg']['kapad'] =  $temp;
-                                $data[$a]['avg']['use_kapad'] =  $use_temp;
-                            } else {
-                                unset($data[$a]);
-                            }
-                        } else {
-                            unset($data[$a]);
-                        }
-                } else {
-                            unset($data[$a]);
-                }
+                $data['size'] = $size[$a];
+                $data['price'] = $price[$a];
+                $x[] = $data;
             }
+            
         }
-        if(!empty($data)){
-            $sizenprice->cloth_details = json_encode($data);
-        } 
+        if(!empty($x)){
+            $sizenprice->cloth_details = json_encode($x);
+        }
         $sizenprice->save();
         return redirect()->route('sizewithprice');
- 
     }
      
     

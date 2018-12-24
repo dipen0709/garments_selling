@@ -37,13 +37,7 @@
                     @if(!empty($stock) && $stock->count() > 0)
                     @foreach($stock as $key => $value)
                     <tr>
-                        <td>
-                            @foreach($sizewithprices as $sizeprize)                            
-                                @if($sizeprize->id == $value->serial_id)                                    
-                                    {{$sizeprize->serial_name}}
-                                @endif
-                            @endforeach
-                        </td>
+                      <td>{{$value->serial_name}}</td>
                       <td>{{$value->size}}</td>
                       <td>{{$value->qty}}</td>                                                                  
                       <td>{{$value->order_date}}</td>
@@ -56,6 +50,7 @@
                 </tbody>
                
               </table>
+                {{ $stock->links() }}
             </div>
             <!-- /.box-body -->
           </div>

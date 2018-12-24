@@ -48,7 +48,6 @@ class CustomerController extends CommonController{
         $customer           =   new Customer();
         $customer->name = $request->name;
         $customer->mobile = $request->mobile;
-        $customer->email = $request->email;         
         $customer->chr_delete = 0;
         $customer->save();
         return redirect()->route('customer');
@@ -74,7 +73,6 @@ class CustomerController extends CommonController{
         $customer           =  Customer::find($request->id);
         $customer->name = $request->name;
         $customer->mobile = $request->mobile;
-        $customer->email = $request->email;
         $customer->chr_delete = 0;                 
         $customer->save();
         return redirect()->route('customer');

@@ -5,12 +5,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Customer Management
+            Bills
             <small>List</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Customer Management</li>
+            <li class="active">Bills</li>
         </ol>
     </section>
 
@@ -20,7 +20,7 @@
                  @if (session()->has('success'))
                     <h4 style="text-align: center; color: green;">{{ session('success') }}</h4>
                  @endif
-              <h3 class="box-title pull-right"> <a href="{{route('customer.create')}}" class="btn btn-block btn-primary">Add Customer</a></h3>
+              <h3 class="box-title pull-right"> <a href="{{route('bill.create')}}" class="btn btn-block btn-primary">Add Bill</a></h3>
             </div>
             <div class="box-body">
               <table id="datatable_catgory" class="table table-bordered table-striped">
@@ -33,8 +33,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @if(!empty($customer) && $customer->count() > 0)
-                    @foreach($customer as $key => $value)
+                    @if(!empty($bills) && $bills->count() > 0)
+                    @foreach($bills as $key => $value)
                     <tr>
                         <td>{{$value->name}}</td>
                         <td>{{$value->mobile}}</td>                                            
@@ -48,6 +48,7 @@
                 </tbody>
                
               </table>
+                {{ $bills->links() }}
             </div>
             <!-- /.box-body -->
           </div>

@@ -32,17 +32,12 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="text" class="form-control p-input " id="email" name="email" >       
-                        </div>
-                        </div>                        
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Mobile</label>
                                 <input type="text" maxlength="10" class="form-control p-input" id="mobile" name="mobile" placeholder="Mobile No">
                         </div>                        
-                        </div>
+                        </div>                       
+                        
                     </div>
                     <div class="box-footer" >
                         <button type="submit" class="btn btn-info  btn-success">Update</button>

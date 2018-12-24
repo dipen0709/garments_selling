@@ -37,19 +37,19 @@ class BillController extends CommonController{
     {
         $return_data = array();
         $this->data['title'] = 'Bills';
-        $this->data['bill'] = Bill::where('chr_delete','=',0)->orderBy('id','desc')->get();
+        $this->data['bills'] = Bill::where('chr_delete','=',0)->orderBy('id','desc')->paginate(25);
         return View('admin/bill/index', array_merge($this->data, $return_data))->render();
     }
 
     public function create(Request $request){
         $return_data = array();
         $this->data['title'] = 'Add Bill';
-        $this->data['bill'] = Bill::where('chr_delete','=',0)->orderBy('id','desc')->get();
-        $sizewithprices = Sizewithprice::select('id','serial_name')->where('chr_delete','=',0);
-        if($bills->serial_id && $order_count > 0){
-           $sizewithprices->where('id','=',$bills->serial_id);
-        }
-        $return_data['sizewithprices'] = $sizewithprices->get();
+//        $this->data['bill'] = Bill::where('chr_delete','=',0)->orderBy('id','desc')->get();
+//        $sizewithprices = Sizewithprice::select('id','serial_name')->where('chr_delete','=',0);
+//        if($bills->serial_id && $order_count > 0){
+//           $sizewithprices->where('id','=',$bills->serial_id);
+//        }
+//        $return_data['sizewithprices'] = $sizewithprices->get();
         
         return View('admin/bill/create', array_merge($this->data, $return_data))->render();                
     }

@@ -54,9 +54,9 @@
                                     <input type="text" class="form-control p-input price_validate" id="price_1" name="price[]" value="" placeholder="total price">
                                 </div>
                                 
-                                <div class="col-md-1" >
+<!--                                <div class="col-md-1" >
                                     <i class="fa fa-plus-circle add_average replace_data_id_1" style="font-size:24px; cursor: pointer;" data-id="1"></i>
-                                </div>
+                                </div>-->
                                 <div class="clearfix" ></div>
                                 <div class="sub_row_1 row col-sm-12"></div>
                             </div>
@@ -75,15 +75,15 @@
         <div class="row col-md-12 sizewithprice_html hidden"><br/>
             <div class="div_row_xxxx row col-sm-12">
                 <input type="hidden" name="total_avg_xxxx" id="total_avg_xxxx" value="0" />
-                <div class="col-md-2 mb-xl-3" style="margin-left: 15px;">
+                <div class="col-md-2 mb-xl-3" style="">
                     <input type="text" class="form-control p-input" id="size_xxxx" name="size_yyyy[]" value="" placeholder="size">
                 </div>
                 <div class="col-md-2">
                     <input type="text" class="form-control p-input price_validate" id="price_xxxx" name="price_yyyy[]" value="" placeholder="total price">
                 </div>                
-                <div class="col-md-1" >
+<!--                <div class="col-md-1" >
                     <i class="fa fa-plus-circle add_average replace_data_id_xxxx" style="font-size:24px; cursor: pointer;" data-id="xxxx"></i>
-                </div>
+                </div>-->
                 <div class="clearfix" ></div>
                 <div class="sub_row_xxxx row col-md-12"></div>
             </div>
@@ -93,7 +93,7 @@
         <div class="average_hidden_html hidden"><br/>
             <div class="row col-md-12"  >
                 <div class="col-md-1"></div>
-                <div class="col-md-2 mb-xl-3" style="margin-left: 15px;">
+                <div class="col-md-2 mb-xl-3" style="margin-bottom: 10px;">
                     <select id="kapad_id_xxxx_yyyy" name="kapad_id_xxxx[]" class="form-control m-b-sm">
                         <option value="">Select</option>
                         @if(!empty($kapad_master))

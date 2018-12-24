@@ -5,8 +5,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Category
-            <small>Edit</small>
+            Bill
+            <small>Create</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -21,21 +21,20 @@
                 <h3 class="box-title">{{$title}}</h3>
             </div>
             <div class="box-body">
-                <form class="forms-sample" id="customers" name="customers" method="POST" enctype="multipart/form-data" action="{{ route('customer.update')}}"
+                <form class="forms-sample" id="bills" name="bills" method="POST" enctype="multipart/form-data" action="{{ route('bill.store')}}"
                       autocomplete="off">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="id" id="id" value="{{ $data->id }}">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label> Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder=" Name" value="{{ $data->name }}">
+                                <input type="text" class="form-control" id="name" name="name" placeholder=" Name" value="">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Mobile</label>
-                                <input type="text" maxlength="10" class="form-control p-input" id="mobile" name="mobile" placeholder="Mobile No" value="{{ $data->mobile }}">
+                                <input type="text" maxlength="10" class="form-control p-input" id="mobile" name="mobile" placeholder="Mobile No">
                         </div>                        
                         </div>                       
                         
@@ -43,7 +42,7 @@
                     <div class="box-footer" >
                         <button type="submit" class="btn btn-info  btn-success">Update</button>
                     </div> 
-                      
+                 
                 </form> 
                 <!-- /.row -->
             </div>
@@ -52,4 +51,5 @@
     </section>
     <!-- /.content -->
 </div>
+
 @endsection

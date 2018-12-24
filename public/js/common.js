@@ -64,19 +64,12 @@ $('.insert-cloth').click(function (e) {
     $('#customers').validate({
         rules: {
             name: {required: true},
-            email: {required: true, email: true},
-            password: {
-                required: true,
-                minlength: 8,
-                PASSWORD: true},
-            confirmpassword: {equalTo: '#password'},
+            email: {email: true},
             mobile: {number: true, maxlength: 10, phoneUSCustom: true}
         },
         messages: {
             name: {required: langauge_var.common_name},
-            email: {required: langauge_var.login_email, email: langauge_var.login_valid_email},
-            password: {required: langauge_var.common_password, minlength: langauge_var.common_password_len8},
-            confirmpassword: {required: langauge_var.common_confirm_password, equalTo: langauge_var.common_password_match},
+            email: {email: langauge_var.login_valid_email},
             mobile: {number: langauge_var.valid_mobile_number, maxlength: langauge_var.mobile_length}
         },
         showErrors: function (errorMap, errorList) {
@@ -177,29 +170,29 @@ $('.insert-cloth').click(function (e) {
                 });
                 return false;
             }
-            if (kapad_id == '' || kapad_id == undefined) {
-                $.toast({
-                    heading: langauge_var.common_error_header,
-                    text: 'Please select kapad.',
-                    icon: 'error',
-                    hideAfter: 5000,
-                    position: 'toast-bottom-right'
-                });
-                if (kapad_id == undefined) {
-                    $('.add_average').trigger('click');
-                }
-                return false;
-            }
-            if (use_kapad == '' || use_kapad == undefined) {
-                $.toast({
-                    heading: langauge_var.common_error_header,
-                    text: langauge_var.common_use_cloth_name,
-                    icon: 'error',
-                    hideAfter: 5000,
-                    position: 'toast-bottom-right'
-                });
-                return false;
-            }
+//            if (kapad_id == '' || kapad_id == undefined) {
+//                $.toast({
+//                    heading: langauge_var.common_error_header,
+//                    text: 'Please select kapad.',
+//                    icon: 'error',
+//                    hideAfter: 5000,
+//                    position: 'toast-bottom-right'
+//                });
+//                if (kapad_id == undefined) {
+//                    $('.add_average').trigger('click');
+//                }
+//                return false;
+//            }
+//            if (use_kapad == '' || use_kapad == undefined) {
+//                $.toast({
+//                    heading: langauge_var.common_error_header,
+//                    text: langauge_var.common_use_cloth_name,
+//                    icon: 'error',
+//                    hideAfter: 5000,
+//                    position: 'toast-bottom-right'
+//                });
+//                return false;
+//            }
             form.submit();
         },
         onkeyup: false,

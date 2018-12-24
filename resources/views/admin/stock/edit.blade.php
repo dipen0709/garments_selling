@@ -43,6 +43,17 @@
                                         @endif
                                     </select>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Date</label>                        
+                                        <div class="input-group date" data-provide="datepicker">
+                                            <input type="text" class="form-control p-input" id="order_date" name="order_date"  value="{{date('m/d/Y', strtotime($data->order_date))}}">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div> 
 
@@ -76,17 +87,7 @@
                             </div>
                         </div>
                         </div>                         
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Order Date</label>                        
-                                <div class="input-group date" data-provide="datepicker">
-                                    <input type="text" class="form-control p-input" id="order_date" name="order_date"  value="{{date('m/d/Y', strtotime($data->order_date))}}">
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-th"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="box-footer" >
                         <button type="submit" class="btn btn-info  btn-success">Update</button>

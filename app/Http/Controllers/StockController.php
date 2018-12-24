@@ -36,15 +36,13 @@ class StockController extends CommonController{
     {
         $return_data = array();
         $this->data['title'] = 'Stocks';
-        $this->data['stock'] = Stock::where('chr_delete','=',0)->orderBy('id','desc')->get();
-        $this->data['sizewithprices'] = Sizewithprice::select('id','serial_name','cloth_details')->where('chr_delete','=',0)->get(); 
+        $this->data['stock'] = Stock::select('stocks.*','sizewithprices.serial_name')->leftjoin('sizewithprices','sizewithprices.id','=','stocks.serial_id')->where('stocks.chr_delete','=',0)->orderBy('stocks.order_date','DESC')->paginate(25);
         return View('admin/stock/index', array_merge($this->data, $return_data))->render();
     }
 
     public function create(Request $request){
         $return_data = array();
         $this->data['title'] = 'Add Stock';
-        $this->data['stock'] = Stock::where('chr_delete','=',0)->orderBy('id','desc')->get();
         $this->data['sizewithprices'] = Sizewithprice::select('id','serial_name','cloth_details')->where('chr_delete','=',0)->get();        
         return View('admin/stock/create', array_merge($this->data, $return_data))->render();
     }

@@ -36,14 +36,9 @@
                                     @endif
                                 </select>
                                 </div>
-                            </div>
-                        </div>  
-                        
-                        <div class="sizewithdata-html"></div>
-                        
-                        <div class="col-md-6">
+                                <div class="col-md-6">
                             <div class="form-group">
-                                <label>Order Date</label>                        
+                                <label>Date</label>                        
                                 <div class="input-group date" data-provide="datepicker">
                                     <input type="text" class="form-control p-input" id="order_date" name="order_date"  value="">
                                     <div class="input-group-addon">
@@ -52,6 +47,12 @@
                                 </div>
                             </div>
                         </div>
+                            </div>
+                        </div>  
+                        
+                        <div class="sizewithdata-html"></div>
+                        
+                        
                     </div>
                     <div class="box-footer" >
                         <button type="submit" class="btn btn-info  btn-success">Update</button>

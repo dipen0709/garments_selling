@@ -13,9 +13,9 @@
             <li class="active">Dashboard</li>
         </ol>
     </section>
-    <h3 class="text-primary mb-4">
+<!--    <h3 class="text-primary mb-4">
         <button type="button" class="btn-primary btn add_cloth" style="float: right; margin-right: 10px;">Add Kapad Type</button>
-    </h3>
+    </h3>-->
    
     <div class="modal fade  " id="add_cloth" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="false" ><div class="fade "></div>
         <div class="modal-dialog" role="document">
