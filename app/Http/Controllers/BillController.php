@@ -18,8 +18,7 @@ use Illuminate\Support\Facades\URL;
 use Intervention\Image\Facades\Image;
 use Redirect;
 use App\Bill;
-use App\ClothMaster;
-use App\Sizewithprice;
+use App\Customer;
 
 class BillController extends CommonController{
 
@@ -44,13 +43,7 @@ class BillController extends CommonController{
     public function create(Request $request){
         $return_data = array();
         $this->data['title'] = 'Add Bill';
-//        $this->data['bill'] = Bill::where('chr_delete','=',0)->orderBy('id','desc')->get();
-//        $sizewithprices = Sizewithprice::select('id','serial_name')->where('chr_delete','=',0);
-//        if($bills->serial_id && $order_count > 0){
-//           $sizewithprices->where('id','=',$bills->serial_id);
-//        }
-//        $return_data['sizewithprices'] = $sizewithprices->get();
-        
+        $this->data['customers'] = Customer::where('chr_delete','=',0)->orderBy('name','asc')->get();
         return View('admin/bill/create', array_merge($this->data, $return_data))->render();                
     }
      
@@ -97,9 +90,7 @@ class BillController extends CommonController{
         return redirect()->route('bill');
     }
    
-    public static function getKapadArray(){
-        return $kapad_array = ClothMaster::pluck('name','id');        
-    }
+    
 }
 
 ?>
